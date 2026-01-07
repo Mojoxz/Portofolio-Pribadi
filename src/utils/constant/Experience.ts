@@ -10,13 +10,13 @@ interface IExperience {
 }
 export const experience = [
   {
-    title: 'Backend Developer',
-    company: 'Utama Web',
-    type: 'Work',
+    title: 'Full Stack Developer Intern',
+    company: 'Dinas Perhubungan Kota Surabaya',
+    type: 'Internship',
     description:
-      'Developed a multi-branch Point of Sale (POS) system using Laravel, focusing on scalability, performance, and user-friendly functionality.',
-    date: 'August 2024 - December 2024',
-    url: 'https://utamaweb.com/',
+      'At the Dinas Perhubungan Kota Surabaya, I created a website to manage Surabaya\'s bus stops using Laravel. Admins can use CRUD and display bus stop locations based on coordinates.',
+    date: 'August 2025 - December 2025',
+    url: 'https://halte.dishubsurabaya.info/',
   },
   {
     title: 'Mobile Developer Cohort',
@@ -36,4 +36,5 @@ export const experience = [
     date: 'April 2023 - April 2024',
     url: 'https://www.wicida.ac.id/',
   },
+  
 ]
