@@ -108,25 +108,23 @@ export default function About() {
             </svg>
           </div>
           <Image
-            src={'/me.png'}
-            alt="Picture of the author"
+            src={'/baru peace.png'}
+            alt="Gambarku Yang Ganteng"
             width={1000}
             height={1000}
             className="aspect-auto h-full w-full rounded-lg object-cover px-8"
           />
         </div>
         <p className="mt-5 text-justify text-base text-secondary-text md:mt-0 lg:w-1/2 xl:text-lg">
-          I am an undergraduate student majoring in{' '}
-          <b>Informatics Engineering</b> at STMIK Widya Cipta Dharma. I possess
-          a strong understanding of programming languages and web development,
-          along with hands-on experience in <b>software development</b>{' '}
-          projects. My current focus is on deepening my knowledge in the field
-          of <b>web & android development</b>.
-          <br />
-          <br />I have hands-on experience with <b>ReactJS</b> and <b>NextJS</b>{' '}
-          for the frontend. and using <b>ExpressJS</b>, <b>AdonisJS</b> for
-          backend development. im also currently learning about <b>Kotlin</b>{' '}
-          for android development
+            I am an undergraduate student majoring in <b>Information Technology Education</b> at State University of Surabaya.
+            I have <b>expert-level skills in networking and server management</b>, and <b>beginner-level skills in web and Android development</b>.
+            I am highly motivated to continuously learn and grow in the field of <b>Information Technology</b>.
+            <br />
+            <br />
+            I have hands-on experience using various <b>networking and server tools</b> such as
+            <b>Winbox</b>, <b>VirtualBox</b>, <b>Cisco Packet Tracer</b>, and <b>Mikrotik</b>.
+            For web development, I have experience using <b>PHP</b> frameworks such as <b>Laravel</b> and frontend technologies like <b>ReactJS</b>.
+            Currently, I am deepening my knowledge in <b>Flutter</b> and <b>Kotlin</b> for mobile application development.
         </p>
       </div>
       <TextSection
