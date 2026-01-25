@@ -1,23 +1,25 @@
 import {
   BiLogoTypescript,
   BiLogoJavascript,
-  BiLogoGoLang,
   BiLogoReact,
   BiLogoNodejs,
-  BiLogoPostgresql,
 } from 'react-icons/bi'
 import {
   SiPhp,
   SiNextdotjs,
   SiLaravel,
   SiExpress,
-  SiAdonisjs,
   SiTailwindcss,
-  SiJest,
-  SiMongodb,
   SiMysql,
-  SiFramer,
   SiJetpackcompose,
+  SiMikrotik,
+  SiCisco,
+  SiGnubash,
+  SiDebian,
+  SiKalilinux,
+  SiFlutter,
+  SiFirebase,
+  SiVisualstudio,
 } from 'react-icons/si'
 
 import { TbBrandKotlin } from 'react-icons/tb'
@@ -36,14 +38,9 @@ export const techIcons = [
     icons: SiPhp,
   },
   {
-    name: 'Golang',
-    icons: BiLogoGoLang,
-  },
-  {
     name: 'Kotlin',
     icons: TbBrandKotlin,
   },
-
   {
     name: 'React',
     icons: BiLogoReact,
@@ -61,10 +58,6 @@ export const techIcons = [
     icons: SiExpress,
   },
   {
-    name: 'AdonisJs',
-    icons: SiAdonisjs,
-  },
-  {
     name: 'NodeJS',
     icons: BiLogoNodejs,
   },
@@ -77,23 +70,40 @@ export const techIcons = [
     icons: SiJetpackcompose,
   },
   {
-    name: 'Framer',
-    icons: SiFramer,
-  },
-  {
-    name: 'Jest',
-    icons: SiJest,
-  },
-  {
-    name: 'MongoDB',
-    icons: SiMongodb,
-  },
-  {
     name: 'MySQL',
     icons: SiMysql,
   },
+  // Icons baru yang ditambahkan
   {
-    name: 'PostgreSQL',
-    icons: BiLogoPostgresql,
+    name: 'Mikrotik',
+    icons: SiMikrotik,
+  },
+  {
+    name: 'Cisco',
+    icons: SiCisco,
+  },
+  {
+    name: 'GNS',
+    icons: SiGnubash,
+  },
+  {
+    name: 'Debian Linux',
+    icons: SiDebian,
+  },
+  {
+    name: 'Kali Linux',
+    icons: SiKalilinux,
+  },
+  {
+    name: 'Flutter',
+    icons: SiFlutter,
+  },
+  {
+    name: 'Firebase',
+    icons: SiFirebase,
+  },
+  {
+    name: 'VS Basic',
+    icons: SiVisualstudio,
   },
 ]
