@@ -15,7 +15,7 @@ export default function Project() {
   const [filter, setFilter] = useState('all')
 
   const { data, isLoading, error } = useSWR(
-    `${process.env.NEXT_PUBLIC_API_URL as string}/project`,
+    `api/projects`,
     fetcher,
     { revalidateOnFocus: false, revalidateOnReconnect: false },
   )
