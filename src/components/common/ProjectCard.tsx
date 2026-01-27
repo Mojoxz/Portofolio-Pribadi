@@ -12,6 +12,11 @@ export default function ProjectCard({
   demo,
   type,
 }: any) {
+  // ✅ FIX: Deteksi apakah image sudah berupa URL lengkap atau masih ID Google Drive
+  const imageUrl = image.startsWith('http') 
+    ? image // Kalau sudah URL lengkap (dari GitHub), pakai langsung
+    : `https://drive.google.com/thumbnail?id=${image}&sz=w3000` // Kalau masih ID, format ke Google Drive
+
   return (
     <motion.div
       whileInView={{ scale: 1 }}
@@ -21,17 +26,25 @@ export default function ProjectCard({
       className="dark:border-dark-secondary group relative h-36 w-[280px] cursor-pointer overflow-hidden rounded-lg  border-2 border-black-primary object-cover shadow-button-card sm:w-[360px] lg:h-44"
     >
       <Image
-        src={`https://drive.google.com/thumbnail?id=${image}&sz=w3000`}
+        src={imageUrl}
         width={1000}
         height={1000}
         className="h-full w-full object-cover"
-        alt="foto"
+        alt={title || "Project image"}
+        // ✅ TAMBAHKAN: unoptimized untuk external images
+        unoptimized
+        // ✅ TAMBAHKAN: onError handler untuk fallback
+        onError={(e) => {
+          // Fallback ke placeholder jika gambar gagal load
+          e.currentTarget.src = '/placeholder-project.png'
+        }}
       />
       <div className="absolute right-0 top-0 z-10 flex h-1/4 w-full -translate-y-10 items-center justify-end gap-2 p-2 transition-all group-hover:translate-y-0">
-        {demo != 'none' && (
+        {demo && demo !== 'none' && (
           <a
             href={demo}
             target={'_blank'}
+            rel="noopener noreferrer"
             className="cursor-pointer rounded-full border-2 border-black-primary bg-yellow-primary p-1.5 text-sm text-black hover:bg-orange-primary lg:p-2 lg:text-base"
           >
             <FaExternalLinkAlt />
@@ -41,6 +54,7 @@ export default function ProjectCard({
           <a
             href={repo}
             target={'_blank'}
+            rel="noopener noreferrer"
             className="cursor-pointer rounded-full border-2 border-black-primary bg-yellow-primary p-1.5 text-sm text-black hover:bg-orange-primary lg:p-2 lg:text-base"
           >
             <FaGithub />
