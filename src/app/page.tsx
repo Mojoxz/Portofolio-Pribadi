@@ -22,7 +22,7 @@ export default function Home() {
     } else if (crackValue < 10) {
       return '/hatch.png'
     } else {
-      return '/chicken.png'
+      return '/dino.png'
     }
   }
 

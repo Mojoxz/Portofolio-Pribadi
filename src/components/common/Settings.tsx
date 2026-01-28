@@ -23,7 +23,7 @@ export function Settings() {
   useEffect(() => {
     if (!audioRef.current) {
       audioRef.current = new Audio(
-        'https://aac.saavncdn.com/051/1fef3e907319879eda1e3934f2d21ff2_320.mp4',
+        'audio/audioku.mp3',
       )
       audioRef.current.addEventListener('ended', () => setIsPlaying(false))
     }
