@@ -11,7 +11,7 @@ import {
 export const logoLinks = [
   {
     name: 'Github',
-    href: 'https://github.com/MuhammadRadifa',
+    href: 'https://github.com/Mojoxz',
     icon: Github,
   },
   {
@@ -22,18 +22,18 @@ export const logoLinks = [
   },
   {
     name: 'Instagram',
-    href: 'https://www.instagram.com/radifa0_0/',
+    href: 'https://www.instagram.com/firmandhanii.setyo/',
     icon: Instagram,
-    content: 'Radifa0_0',
+    content: 'firmandhani',
   },
   {
     name: 'LinkedIn',
-    href: 'https://www.linkedin.com/in/radifa/',
+    href: 'https://www.linkedin.com/in/firmandhani-setyo/',
     icon: LinkedIn,
   },
   {
     name: 'Gmail',
-    href: '',
+    href: 'mailto: firmandhani.23029@mhs.unesa.ac.id',
     icon: Mail,
   },
   {
