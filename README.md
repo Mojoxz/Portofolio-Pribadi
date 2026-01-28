@@ -1,4 +1,4 @@
-<image src=""/>
+<image src="landing.png"/>
 
 # Personal Portfolio Website
 
