@@ -18,34 +18,67 @@ export function Settings() {
   const [petEnable, setPetEnable] = useState(true)
   const [isPlaying, setIsPlaying] = useState(false)
   const [volume, setVolume] = useState(0.05)
+  const [currentTrackIndex, setCurrentTrackIndex] = useState(0)
   const audioRef: any = useRef(null)
+  
+
+  const audioTracks = [
+    { name: 'Audio 1', path: 'audio/multo.mp3' },
+    { name: 'Audio 2', path: 'audio/guilty.mp3' },
+    { name: 'Audio 3', path: 'audio/audioku.mp3' },
+  ]
 
   useEffect(() => {
     if (!audioRef.current) {
-      audioRef.current = new Audio(
-        'audio/audioku.mp3',
-      )
-      audioRef.current.addEventListener('ended', () => setIsPlaying(false))
+      audioRef.current = new Audio(audioTracks[currentTrackIndex].path)
+      audioRef.current.addEventListener('ended', () => {
+        playNextTrack();
+      })
+    } else if (audioRef.current.src !== audioTracks[currentTrackIndex].path) {
+      audioRef.current.src = audioTracks[currentTrackIndex].path
     }
 
     const audio = audioRef.current
-    audio.volume = 0.05
+    audio.volume = volume
 
     isPlaying ? audio.play() : audio.pause()
 
     return () => {
       audio.pause()
-      audio.removeEventListener('ended', () => setIsPlaying(false))
+      audio.removeEventListener('ended', () => playNextTrack())
     }
-  }, [isPlaying, setIsPlaying])
+  }, [isPlaying, currentTrackIndex, volume])
 
   const toggle = () => setIsPlaying(!isPlaying)
+  
+  const playNextTrack = () => {
+    const nextIndex = (currentTrackIndex + 1) % audioTracks.length
+    setCurrentTrackIndex(nextIndex)
+    if (isPlaying) {
+      setIsPlaying(false)
+      setTimeout(() => setIsPlaying(true), 100)
+    }
+  }
+  
+  const playPreviousTrack = () => {
+    const prevIndex = currentTrackIndex === 0 ? audioTracks.length - 1 : currentTrackIndex - 1
+    setCurrentTrackIndex(prevIndex)
+    if (isPlaying) {
+      setIsPlaying(false)
+      setTimeout(() => setIsPlaying(true), 100)
+    }
+  }
+  
+  const selectTrack = (index: number) => {
+    setCurrentTrackIndex(index)
+    if (isPlaying) {
+      setIsPlaying(false)
+      setTimeout(() => setIsPlaying(true), 100)
+    }
+  }
 
   return (
     <div className="fixed bottom-6 left-6 hidden w-full items-center space-x-5 md:flex">
-      {/* <div>
-        
-      </div> */}
       <SpeedDial className="z-10">
         <SpeedDialHandler>
           <button className="h-16 w-16 cursor-pointer rounded-full border-4 border-black-primary bg-yellow-primary duration-150 hover:-rotate-90 md:right-16 md:block">
@@ -96,10 +129,16 @@ export function Settings() {
             className="h-8 w-20 accent-white"
             value={volume * 100}
             onChange={(e) => {
-              setVolume(parseInt(e.target.value) / 100)
-              audioRef.current.volume = volume
+              const newVolume = parseInt(e.target.value) / 100
+              setVolume(newVolume)
+              if (audioRef.current) {
+                audioRef.current.volume = newVolume
+              }
             }}
           />
+          <div className="ml-2 text-sm font-medium">
+            {audioTracks[currentTrackIndex].name}
+          </div>
         </div>
       )}
       {petEnable && <Pets />}
